@@ -140,7 +140,8 @@ bintray {
 }
 
 artifactory {
-    contextUrl = 'http://oss.jfrog.org/artifactory' //The base Artifactory URL if not overridden by the publisher/resolver
+    contextUrl = 'http://oss.jfrog.org/artifactory'
+    //The base Artifactory URL if not overridden by the publisher/resolver
     resolve {
         repository {
             repoKey = 'libs-release'
@@ -168,6 +169,6 @@ artifactoryPublish.onlyIf {
     version.endsWith("-SNAPSHOT")
 }
 
-task deploy(dependsOn: ['install', 'bintrayUpload', 'artifactoryPublish']) << {
+task deploy(dependsOn: ['install', 'bintrayUpload', 'artifactoryPublish']) {
     println "deploy ...."
 }
